@@ -4,3 +4,4 @@ langchain
 langchain_openai
 markdown
 bs4
+python-dotenv
