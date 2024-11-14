@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help Desk Bot</title>
+</head>
+<body>
+    <h1>Consumers Energy Smart Search</h1>
+    <form method="POST">
+        <label for="inquiry">Enter your inquiry:</label><br>
+        <input type="text" id="inquiry" name="inquiry" value="{{ inquiry }}"><br><br>  <!-- Pre-fill input with the inquiry -->
+        <input type="submit" value="Submit">
+    </form>
+    {% if result %}
+        <h2>Response to "{{ inquiry }}":</h2>  <!-- Display the inquiry here -->
+        <div>{{ result|safe }}</div>  <!-- Display the response result -->
+    {% else %}
+        <p>No result to display.</p>
+    {% endif %}
+</body>
+</html>

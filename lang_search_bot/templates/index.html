@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumers Energy Helpbot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header, .nav-bar, .footer {
+            background-color: #0078d7;
+            color: white;
+        }
+        .header img {
+            width: 200px;
+            padding: 10px;
+        }
+        .button-green {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .main-content {
+            margin: 20px 0;
+        }
+        .custom-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            color: #333333;
+        }
+        .placeholder {
+            border: 1px solid #ddd;
+            padding: 20px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header d-flex align-items-center">
+        <img src="/static/logo.png" alt="Consumers Energy Logo">
+        <input type="text" placeholder="Search Consumers Energy..." class="ml-auto" style="padding: 5px; border-radius: 4px;">
+        <button class="btn btn-secondary ml-2">Residential</button>
+        <button class="btn btn-secondary ml-2">Business</button>
+    </header>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar d-flex justify-content-between p-2">
+        <a href="#" class="text-white">Account & Billing</a>
+        <a href="#" class="text-white">Savings & Clean Energy</a>
+        <a href="#" class="text-white">Outages & Safety</a>
+        <div>
+            <a href="#" class="text-white mx-2">Pay Bill</a>
+            <a href="#" class="text-white mx-2">Outage</a>
+            <a href="#" class="text-white mx-2">Shop</a>
+            <a href="#" class="text-white mx-2">Log In</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="custom-card">
+                    <h1>Consumers Energy Smart Search</h1>
+                    <form method="POST">
+                        <label for="inquiry">Enter your inquiry:</label><br>
+                        <input type="text" id="inquiry" name="inquiry" value="{{ inquiry }}"><br><br>  <!-- Pre-fill input with the inquiry -->
+                        <input type="submit" value="Submit">
+                    </form>
+                    {% if result %}
+                        <h2>Response to "{{ inquiry }}":</h2>  <!-- Display the inquiry here -->
+                        <div>{{ result|safe }}</div>  <!-- Display the response result -->
+                    {% else %}
+                        <p>No result to display.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Placeholder div for custom content -->
+                <div class="placeholder">
+                    <h3>Earn Rebates and Save Money With Upgrades Around Your Home</h3>
+                    <p>Explore rebates and discounts for various home upgrades to help you save on energy costs.</p>
+                    <button class="button-green">Explore Rebates & Discounts</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer p-3 text-center">
+        <p>&copy; Consumers Energy - All Rights Reserved</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
