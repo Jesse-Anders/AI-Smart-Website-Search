@@ -61,4 +61,4 @@ prompt = ChatPromptTemplate(
 ```
 
 ### Understanding the Agent Flow in lang_bot_build.py
-This is a very simple 2 part Langnchain agentic system. _(llm_chain = prompt | llm_with_tools)_ wherin the Tavily search tool (llm_with_tools) runs a search based on the user inquiry and outputs its search results formatted with URLs. This result/output is then handed off to the 'prompt' which cleans up the content and generates a 'cutomer service styled' final response. In the current setup both the prompt | llm_with_tools utilize gtp4o-mini, but each can utilize their own models if need be.
+This is a simple 2 part Langnchain agentic system. _(llm_chain = prompt | llm_with_tools)_ wherin the Tavily search tool (llm_with_tools) runs a search based on the user inquiry and outputs its search results formatted with URLs. This result/output is then handed off to the 'prompt' which cleans up the content and generates a 'cutomer service styled' final response. In the current setup both the prompt and the llm_with_tools utilize gtp4o-mini, but each can utilize their own models if need be.
