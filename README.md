@@ -5,7 +5,13 @@ This smart search tool searches a defined website and return results with pertin
 (There is no professional affiliation with Consumers Energy) 
 
 ### DOCUMENTATION
-_OpenAI and Tavily API Keys Required_
+
+git clone https://github.com/jesseanders/opengpts.git
+cd opengpts
+
+🚨OpenAI and Tavily API Keys Required🚨<br>
+Enter your API Keys where labeled in the lang_bot_build.py file and save the file.
+
 ### Setting up and running the Web UI as is:
 > Install Docker Desktop App - https://www.docker.com <br>
 > Create Environment in VS Studio with included Files (file structure)
