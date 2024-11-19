@@ -14,7 +14,9 @@ cd AI-Smart-Website-Search/lang_search_bot
 ```
 
 🚨OpenAI and Tavily API Keys Required🚨<br>
-Enter your API Keys where labeled in the lang_bot_build.py file and save the file.
+Change the name of the .envSAMPLE file to just .env<br>
+add your API keys to the .env file
+
 
 ### Setting up and running the Web UI as is:
 > Install Docker Desktop App - https://www.docker.com <br>
