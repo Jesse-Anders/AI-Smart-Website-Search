@@ -1,22 +1,34 @@
-# test state change
 # pip install -U langchain langchain-openai
 # # !pip install -qU langchain-openai
 # # !pip install -qU "langchain-community>=0.2.11" tavily-python
 
+#os.environ["OPENAI_API_KEY"] = 'Enter OpenAI API Key Here'
+
+from dotenv import load_dotenv
 import os
-os.environ["OPENAI_API_KEY"] = 'Enter OpenAI API Key Here'
+
+load_dotenv()  # Load environment variables from .env file
+
+def get_openai_api_key():
+    return os.getenv("OPENAI_API_KEY")
+
+def get_tavily_api_key():
+    return os.getenv("TAVILY_API_KEY")
+
+# Usage
+openai_key = get_openai_api_key()
+tavily_key = get_tavily_api_key()
 
 from langchain_openai import ChatOpenAI
 
 # model = ChatOpenAI(model="gpt-3.5-turbo")
 model = ChatOpenAI(model="gpt-4o-mini")
 
-import os
+#import os
 
-if not os.environ.get("TAVILY_API_KEY"):
-    os.environ["TAVILY_API_KEY"] = 'Enter Tavily API Key Here'
+#if not os.environ.get("TAVILY_API_KEY"):
+#    os.environ["TAVILY_API_KEY"] = 'Enter Tavily API Key Here'
 
-# +
 from langchain_community.tools import TavilySearchResults
 
 tool = TavilySearchResults(
@@ -46,7 +58,12 @@ prompt = ChatPromptTemplate(
     [
         ("system", "You are a helpful writing assistant to improve information for customers of ConsumersEnergy.com. "
                    "You clean up rough drafts and make them friendly and professional for customers to read. "
-                   "You NEVER alter URLs from the rough drafts you receive."),
+                   "You NEVER alter URLs from the rough drafts you receive."
+                   "Do not answer questions regarding competing companies"
+                   "Guidelines: "
+                   "1. You should avoid mentioning or promoting any competitor services or companies. If asked about a competing service, keep responses neutral, focusing only on Consumers Energy's offerings. "
+                   "2. You should always maintain a respectful and neutral tone, even in response to challenging or critical feedback. Avoid any self-deprecating or negative remarks about yourself or Consumers Energy. Politely reframe challenging questions to remain constructive "
+),
         ("human", "{combined_input}"),  # Combined user and tool input
     ]
 )
