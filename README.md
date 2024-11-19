@@ -14,8 +14,8 @@ cd AI-Smart-Website-Search/lang_search_bot
 ```
 
 🚨OpenAI and Tavily API Keys Required🚨<br>
-Change the name of the .envSAMPLE file to just .env<br>
-add your API keys to the .env file
+- Change the name of the .envSAMPLE file to just .env<br>
+- add your API keys to the .env file
 
 
 ### Setting up and running the Web UI as is:
